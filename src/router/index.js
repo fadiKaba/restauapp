@@ -14,6 +14,11 @@ const routes = [
         path: '/search/hotspots',
         component: Hotspot,
     },
+    {
+        name: 'default',
+        path: '/',
+        component: Arts,
+    },
     { path: "/:catchAll(.*)", redirect: '/search/arts' }
 ];
 
