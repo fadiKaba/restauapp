@@ -13,7 +13,8 @@ const routes = [
         name: 'hotspots',
         path: '/search/hotspots',
         component: Hotspot,
-    }
+    },
+    { path: "/:catchAll(.*)", redirect: '/search/arts' }
 ];
 
 const router = createRouter({

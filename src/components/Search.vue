@@ -37,27 +37,6 @@ export default {
     },
     data: function(){
         return{
-            data: [
-                    {id: 1, description: "Fish"},
-                    {id: 2, description: "Meat"},
-                    {id: 3, description: "Fruits"},
-                    {id: 4, description: "Vegetable"},
-                    {id: 5, description: "Yood"},
-                    {id: 6, description: "Uileh"},
-                    {id: 7, description: "Good"},
-                    {id: 8, description: "Kood"},
-                    {id: 9, description: "Lood"},
-                    {id: 10, description: "Mood"},
-                    {id: 11, description: "Oood"},
-                    {id: 12, description: "Pood"},
-                    {id: 13, description: "Qood"},
-                    {id: 14, description: "Rood"},
-                    {id: 15, description: "sood"},
-                    {id: 16, description: "Hood"},
-                    {id: 16, description: "Aood"},
-                    {id: 16, description: "Bood"},
-                    {id: 16, description: "Cood"},
-            ],
             isOpen: false,
         }
     },
