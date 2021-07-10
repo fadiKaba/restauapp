@@ -6,12 +6,12 @@ import Hotspot from '../views/Hotspots';
 const routes = [
     {
         name: 'arts',
-        path: '/search/arts',
+        path: 'search/arts',
         component: Arts,
     },
     {
         name: 'hotspots',
-        path: '/search/hotspots',
+        path: 'search/hotspots',
         component: Hotspot,
     },
     {
