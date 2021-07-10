@@ -20,7 +20,7 @@
         <div class="mini-nav">
             <router-link to="/arts">Art</router-link>
             <router-link to="/hotspots">Hotspot</router-link>
-            <a href="#">02:59</a>
+            <router-link to="/lifes">02:59</router-link>
             <a class="tag-icon-link" href="#"><img class="tag-icon" :src="require('/src/assets/ics/tag.png')">Tags</a>
         </div>
 
@@ -64,6 +64,9 @@ export default {
            locationC: '',
            selectedLocation: '',
        } 
+    },
+    mounted:function(){
+      
     },
     methods: {
         openSearchModule: function(){
@@ -140,7 +143,7 @@ export default {
             color: $secondary;
             text-transform: uppercase;
             &:hover{
-                color: $hover-color
+               // color: $hover-color
             }
             &.tag-icon-link{
                 display: flex;
@@ -151,6 +154,9 @@ export default {
                 margin: 0;
                 }
             }    
+            &.router-link-active{
+              color: $hover-color;
+            }
         }     
     }
 

@@ -108,10 +108,16 @@ export default {
             grid-template-columns: 1fr;
             height: 20vh;
             text-align: center;
+            align-content: center;
+            font-size: 12px;
+            line-height: 20px;
             div{
                 display: flex;
                 justify-content: center;
                 align-items: flex-end;
+            }
+            span:nth-child(3){
+                letter-spacing: 5px;
             }
         }
 		.inner-div {

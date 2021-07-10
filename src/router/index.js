@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory} from 'vue-router'; 
 
 import Arts from '../views/Arts';
-import Hotspot from '../views/Hotspots';
+import Hotspots from '../views/Hotspots';
+import Lifes from '../views/Lifes';
 
 const routes = [
     {
@@ -12,7 +13,12 @@ const routes = [
     {
         name: 'hotspots',
         path: '/hotspots',
-        component: Hotspot,
+        component: Hotspots,
+    },
+    {
+        name: 'life',
+        path: '/lifes',
+        component: Lifes,
     },
     // {
     //     name: 'default',
