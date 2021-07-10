@@ -6,20 +6,20 @@ import Hotspot from '../views/Hotspots';
 const routes = [
     {
         name: 'arts',
-        path: 'search/arts',
+        path: '/arts',
         component: Arts,
     },
     {
         name: 'hotspots',
-        path: 'search/hotspots',
+        path: '/hotspots',
         component: Hotspot,
     },
-    {
-        name: 'default',
-        path: '/',
-        component: Arts,
-    },
-    { path: "/:catchAll(.*)", redirect: '/search/arts' }
+    // {
+    //     name: 'default',
+    //     path: '/',
+    //     component: Arts,
+    // },
+    { path: "/:catchAll(.*)", redirect: '/arts' }
 ];
 
 const router = createRouter({

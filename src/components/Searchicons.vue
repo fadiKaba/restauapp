@@ -18,8 +18,8 @@
         </div>
 
         <div class="mini-nav">
-            <router-link to="/search/arts">Art</router-link>
-            <router-link to="/search/hotspots">Hotspot</router-link>
+            <router-link to="/arts">Art</router-link>
+            <router-link to="/hotspots">Hotspot</router-link>
             <a href="#">02:59</a>
             <a class="tag-icon-link" href="#"><img class="tag-icon" :src="require('/src/assets/ics/tag.png')">Tags</a>
         </div>
@@ -223,5 +223,37 @@ export default {
             transform: translateX(0);
         }
     }
+
+@media screen and (min-width: 791px) {
+    @keyframes hide-r {
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(-200vh);
+        }
+    }
+    @keyframes show-r {
+        0%{
+            transform: translateX(-200vh);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+    .move-down{
+        transform: translateY(8vw);
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    #locations-container::-webkit-scrollbar {
+    display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    #locations-container{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    }
+}
 
 </style>

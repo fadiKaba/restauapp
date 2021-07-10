@@ -2,7 +2,6 @@
       <div class="search">
         
         <router-view></router-view>
-        <!-- <Art></Art> -->
 
         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="search-container-hotsopt">

@@ -2,10 +2,10 @@
     <div class="search-view display-none">
        <div id="search-container-1">
            <div class="input-container">
-               <input ref="sinput" type="text" id="search-input" autocomplete="off">
-               <div id="search-result" class="display-none">
+               <input @keyup="search()" v-model="typing" ref="sinput" type="text" id="search-input" autocomplete="off">
+               <div id="search-result" :class="['display-none', result.length > 0? 'display-show-fast':'']">
                    <ul>
-  
+                      <li v-for="res in result" :key="res.id"><span class="dot"></span> <span>{{res.description}}</span></li>
                    </ul>
                </div>
            </div>
@@ -42,6 +42,8 @@ export default {
                 {id: 16, description: "Bood"},
                 {id: 16, description: "Cood"},
             ],
+            result: [],
+            typing: '',
         }
     },
     mounted: function(){
@@ -51,18 +53,23 @@ export default {
     methods:{
        hideModule: function(){
              document.querySelector('.search-view').addEventListener('click', function(e){
-          //  e.target.classList.remove('display-show');
              if(e.target == this){
-               // document.querySelector('.search-container').classList.remove('display-show');
                e.target.classList.remove('display-show')
              }
         })
-       }
+       },
+        search: function(){
+        this.result = [];
+        for(let i = 0; i < this.data.length; i++){
+            if(this.data[i].description[0].toLocaleLowerCase() == this.typing.toLocaleLowerCase()){        
+              this.result.push(this.data[i]);
+            }
+        }
+      }
     },
     watch:{
         isOpen: function(newValue){
             document.querySelector('.search-view').classList.add('display-show');
-            console.log(document.querySelector('.input-container'));
             this.$refs.sinput.focus();
         },
     }
