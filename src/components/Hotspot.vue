@@ -86,7 +86,6 @@ export default {
 </script>
 <style lang="scss">
  @import '../scss/main.scss';
-@import '../scss/colors.scss';
 
 	img {
 		width: 100%;

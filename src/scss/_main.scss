@@ -1,3 +1,5 @@
+@import 'colors.scss';
+
 html, body{
     margin: 0;
     padding: 0;
@@ -33,6 +35,13 @@ button{
     border: none;
     background-color: transparent;
     cursor: pointer;
+    &:focus{
+        outline: none; 
+        background-color: transparent;
+    }
+    &:active{
+        background-color: transparent;
+    }
 }
 
 .display-none{
@@ -61,3 +70,10 @@ a{
      opacity: 1;
     }
 }
+
+body { font-family: sans-serif; }
+
+.gallery {
+  background: #EEE;
+}
+

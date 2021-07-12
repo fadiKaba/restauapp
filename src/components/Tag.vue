@@ -1,5 +1,7 @@
 <template>
-    <div class="search-container-life">
+<div>
+
+        <div class="search-container-tags">
             <div id="search-column-1">
 
             </div>
@@ -8,22 +10,51 @@
             </div>
             <div id="search-column-3">
 
-            </div>       
+            </div>  
     </div>
+    <div class="carous">
+           <swiper
+            :slides-per-view="6"
+            :space-between="10"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+            >   
+                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
+                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
+        </swiper>
+    </div>
+     
+</div>
+
 </template>
 
 <script>
+
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper.scss';
+
 export default {
-    name: 'Life',
+    name: 'Tag',
+    components:{
+          Swiper,
+      SwiperSlide,
+    },
     data: function(){
         return{
             images: [
-                {id: 1, src: "https://source.unsplash.com/random/400x530"},
-                {id: 2, src: "https://source.unsplash.com/random/400x630"},
+                {id: 1, src: "https://source.unsplash.com/random/400x520"},
+                {id: 2, src: "https://source.unsplash.com/random/400x620"},
                 {id: 3, src: "https://source.unsplash.com/random/400x730"},
-                {id: 4, src: "https://source.unsplash.com/random/400x830"},
-                {id: 5, src: "https://source.unsplash.com/random/500x630"},
-                {id: 6, src: "https://source.unsplash.com/random/500x730"},
+                {id: 4, src: "https://source.unsplash.com/random/400x840"},
+                {id: 5, src: "https://source.unsplash.com/random/500x660"},
+                {id: 6, src: "https://source.unsplash.com/random/500x720"},
                 {id: 7, src: "https://source.unsplash.com/random/500x830"},
                 {id: 8, src: "https://source.unsplash.com/random/500x930"},
                 {id: 9, src: "https://source.unsplash.com/random/300x430"},
@@ -35,6 +66,14 @@ export default {
                 {id: 15, src: "https://source.unsplash.com/random/600x830"},
                 {id: 16, src: "https://source.unsplash.com/random/600x900"},
                 {id: 17, src: "https://source.unsplash.com/random/700x800"},
+            ],
+            icons:[
+                {id: 1, src: '/src/assets/ics/apple.png' },
+                {id: 2, src: '/src/assets/ics/carrot.png' },
+                {id: 3, src: '/src/assets/ics/bananna.png' },
+                {id: 1, src: '/src/assets/ics/apple.png' },
+                {id: 2, src: '/src/assets/ics/carrot.png' },
+                {id: 3, src: '/src/assets/ics/bananna.png' },
             ],
             title: 
             `
@@ -82,7 +121,13 @@ export default {
                 
             });
         },
-    }
+        onSwiper(swiper) {
+             console.log(swiper);
+        },
+        onSlideChange() {
+            console.log('slide change');
+        },
+    },
 }
 </script>
 
@@ -95,7 +140,7 @@ export default {
 		border-radius: 8px;
 		margin-bottom: 10px;
 	}
-	.search-container-life{
+	.search-container-tags{
 		display: flex;
 
 		color: #fff;
@@ -132,13 +177,57 @@ export default {
 			height: 100%;
 			object-fit: cover;
 		}
+        .mini-nav-tags{
+            width:100%;
+            background-color: #000;
+            padding: 3px 0;
+            letter-spacing: 3px;
+            position:absolute;
+            bottom: 10vh;
+            a{
+                color: $secondary;
+                text-transform: uppercase;
+                &:hover{
+                // color: $hover-color
+                }
+                &.tag-icon-link{
+                    display: flex;
+                    font-size: 12px;
+                    text-transform: capitalize;
+                    .tag-icon{
+                    width: 15px;
+                    margin: 0;
+                    }
+                }    
+                &.router-link-active{
+                color: $hover-color;
+                }
+            }     
+        }
 	}
 
 * {
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
+.carous{
+    z-index: 99;
+    position: fixed;
+    bottom: 10%;
+    color: #fff;
+    width: 100%;
+    background-color: lighten($trans-black, 20);
+    padding-top:10px;
+    img{
+        width: 40px;
+    }
+    div{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
 </style>
 
 

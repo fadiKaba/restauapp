@@ -21,7 +21,7 @@ export default {
 
 <style scoped lang="scss">
 
-@import '../scss/colors.scss';
+@import '../scss/main.scss';
 
 footer{
     position: fixed;

@@ -3,9 +3,9 @@
        <div id="search-container-1">
            <div class="input-container">
                <input @keyup="search()" v-model="typing" ref="sinput" type="text" id="search-input" autocomplete="off">
-               <div id="search-result" :class="['display-none', result.length > 0? 'display-show-fast':'']">
+               <div v-if="results.length > 0"  id="search-result" >
                    <ul>
-                      <li v-for="res in result" :key="res.id"><span class="dot"></span> <span>{{res.description}}</span></li>
+                      <li v-for="result in resComputed" :key="result.id"><span class="dot"></span> <span>{{result.description}}</span></li>
                    </ul>
                </div>
            </div>
@@ -14,6 +14,7 @@
 </template>
 <script>
 export default {
+    //:class="['display-none', result.length > 0? 'display-show-fast':'']"
     name: 'Searchmodule',
     props:{
         isOpen: Boolean,
@@ -42,7 +43,7 @@ export default {
                 {id: 16, description: "Bood"},
                 {id: 16, description: "Cood"},
             ],
-            result: [],
+            results: [],
             typing: '',
         }
     },
@@ -54,30 +55,42 @@ export default {
        hideModule: function(){
              document.querySelector('.search-view').addEventListener('click', function(e){
              if(e.target == this){
-               e.target.classList.remove('display-show')
+               e.target.classList.remove('display-show');
              }
         })
        },
         search: function(){
-        this.result = [];
+        this.results = [];
         for(let i = 0; i < this.data.length; i++){
-            if(this.data[i].description[0].toLocaleLowerCase() == this.typing.toLocaleLowerCase()){        
-              this.result.push(this.data[i]);
+             if(this.data[i].description[0].toLocaleLowerCase() == this.typing.toLocaleLowerCase()){        
+              this.results.push(this.data[i]);
             }
+            
         }
-      }
+        return this.results;
+      },
+  
+    },
+    computed: {
+        resComputed: function(){
+            return this.search();
+        }
     },
     watch:{
         isOpen: function(newValue){
-            document.querySelector('.search-view').classList.add('display-show');
-            this.$refs.sinput.focus();
+            if(document.querySelector('.search-view').classList.contains('display-show')){
+                document.querySelector('.search-view').classList.remove('display-show');
+            }else{
+               document.querySelector('.search-view').classList.add('display-show');
+            this.$refs.sinput.focus(); 
+            }  
         },
     }
 }
 </script>
 <style lang="scss" scoped>
 
-    @import '../scss/colors.scss';
+    @import '../scss/main.scss';
 
    .search-view {
 	transition: 1s;
@@ -123,7 +136,7 @@ export default {
 				ul {
 					margin: 0;
 					padding: 0;
-					li {
+					li{
 						display: grid;
 						grid-template-columns: 1fr 11fr;
 						justify-items: center;

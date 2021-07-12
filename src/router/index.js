@@ -3,6 +3,7 @@ import { createRouter, createWebHistory} from 'vue-router';
 import Arts from '../views/Arts';
 import Hotspots from '../views/Hotspots';
 import Lifes from '../views/Lifes';
+import Tags from '../views/Tags';
 
 const routes = [
     {
@@ -19,6 +20,11 @@ const routes = [
         name: 'life',
         path: '/lifes',
         component: Lifes,
+    },
+    {
+        name: 'tag',
+        path: '/tags',
+        component: Tags,
     },
     // {
     //     name: 'default',

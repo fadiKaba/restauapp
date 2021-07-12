@@ -18,10 +18,10 @@
         </div>
 
         <div class="mini-nav">
-            <router-link to="/arts">Art</router-link>
-            <router-link to="/hotspots">Hotspot</router-link>
-            <router-link to="/lifes">02:59</router-link>
-            <a class="tag-icon-link" href="#"><img class="tag-icon" :src="require('/src/assets/ics/tag.png')">Tags</a>
+            <router-link @click="removeTransletTop()" to="/arts">Art</router-link>
+            <router-link @click="removeTransletTop()" to="/hotspots">Hotspot</router-link>
+            <router-link @click="removeTransletTop()" to="/lifes">02:59</router-link>
+            <router-link class="tag-icon-link" @click="transletTop()" to="/tags"><img class="tag-icon" :src="require('/src/assets/ics/tag.png')">Tags</router-link>
         </div>
 
         <div id="locations-container" :class="isHiddenLocationContainer ? 'hide-r' : 'show-r'">
@@ -66,7 +66,7 @@ export default {
        } 
     },
     mounted:function(){
-      
+      this.activeTranslate();
     },
     methods: {
         openSearchModule: function(){
@@ -84,6 +84,7 @@ export default {
         },
         setLocation: function(){
             this.selectedLocation = this.locationC;
+            this.isHiddenLocationContainer = !this.isHiddenLocationContainer;
         },
         chooseLocation: function(loc, event){     
             this.locationC = loc;
@@ -97,6 +98,22 @@ export default {
            if(this.selectedLocation == title){
               event.taget.classList.add('color-selected');
            }
+        },
+        transletTop: function(){
+            document.querySelector('.search-icons-inner-container').classList.add('translate-top');
+        },
+        removeTransletTop: function(){
+            document.querySelector('.search-icons-inner-container').classList.remove('translate-top');
+        },
+        activeTranslate: function(){
+            console.log('dd')
+            if(document.querySelector('.mini-nav a:nth-child(4)').classList.contains('router-link-active')){
+                console.log('dd')
+                if(!document.querySelector('.search-icons-inner-container').classList.contains('translate-top')){
+                  document.querySelector('.search-icons-inner-container').classList.add('translate-top');
+                }
+                
+            }
         }
     }
 }
@@ -104,7 +121,7 @@ export default {
 
 <style lang="scss" scoped>
 
-  @import '../scss/colors.scss';
+  @import '../scss/main.scss';
 
 	.search-icons-container {
 		position: fixed;
@@ -116,6 +133,7 @@ export default {
             display: grid;
             grid-template-columns: 1fr;
             justify-items: end;
+            transition: 0.3s;
             button{
                 margin-right: 10px;
                 transition: 0.6s;
@@ -128,6 +146,9 @@ export default {
             }
             .img-loup{
                 width: 29px;
+            }
+            &.translate-top{
+                transform: translateY(-8vh);
             }
         }
 	}
@@ -210,7 +231,7 @@ export default {
         transform: translateX(30vw);
     }
     .move-down{
-        transform: translateY(20vw);
+        transform: translateY(15vh);
     }
     
     @keyframes hide-r {
