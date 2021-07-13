@@ -231,7 +231,7 @@ export default {
         transform: translateX(30vw);
     }
     .move-down{
-        transform: translateY(15vh);
+        transform: translateY(-20vh);
     }
     
     @keyframes hide-r {

@@ -19,15 +19,51 @@
             @swiper="onSwiper"
             @slideChange="onSlideChange"
             >   
-                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/carrot.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/apple.png" alt=""></swiper-slide>
-                <swiper-slide><img src="../../src/assets/ics/bananas.png" alt=""></swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/carrot.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/apple.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/bananas.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/carrot.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/apple.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/bananas.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/carrot.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/apple.png" alt="">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="../../src/assets/ics/bananas.png" alt="">
+                    </a>
+                </swiper-slide>
         </swiper>
     </div>
      
@@ -121,12 +157,12 @@ export default {
                 
             });
         },
-        onSwiper(swiper) {
-             console.log(swiper);
-        },
-        onSlideChange() {
-            console.log('slide change');
-        },
+        // onSwiper(swiper) {
+             
+        // },
+        // onSlideChange() {
+            
+        // },
     },
 }
 </script>
