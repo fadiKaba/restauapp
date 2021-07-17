@@ -18,14 +18,13 @@
     
 
         <Searchmodule :isOpen="isOpen"></Searchmodule>
-        <!-- <Searchicons @openSearchModule= "openSearchModule"></Searchicons> -->
     </div>
         
 
 		<!-- Search icons container -->
 	    <div class="search-icons-container">
 			<div class="search-icons-inner-container">
-				<div><button id="location-btn" :class="!isHiddenLocationContainer ? 'move-down': ''" @click="showLocationContainer()">
+				<div><button id="location-btn" :class="!isHiddenLocationContainer  ? selectedContent != 'tags'? 'move-down': 'move-down-tags': ''" @click="showLocationContainer()">
 					<img class="img-location" :src="require('/src/assets/ics/location.png')" alt="location">
 				</button></div>
 				<div>
@@ -41,10 +40,19 @@
 			</div>
 
 			<div class="mini-nav">
-				<button @click="removeTransletTop(), selectedContent = 'arts'" to="/arts">Art</button>
-				<button @click="removeTransletTop(), selectedContent = 'hotspots'" to="/hotspots">Hotspot</button>
-				<button @click="removeTransletTop(), selectedContent = 'lifes'" to="/lifes">02:59</button>
-				<button class="tag-icon-link" @click="transletTop(), selectedContent = 'tags'" to="/tags"><img class="tag-icon" :src="require('/src/assets/ics/tag.png')">Tags</button> 
+				<button 
+                @click="removeTransletTop(), selectedContent = 'arts'" :class="[selectedContent == 'arts'? 'selected-content': '']">
+                Art</button>
+				<button 
+                @click="removeTransletTop(), selectedContent = 'hotspots'" :class="[selectedContent == 'hotspots'? 'selected-content': '']">
+                Hotspot</button>
+				<button 
+                @click="removeTransletTop(), selectedContent = 'lifes'" :class="[selectedContent == 'lifes'? 'selected-content': '']">
+                02:59</button>
+				<button 
+                :class="['tag-icon-link', selectedContent == 'tags'? 'selected-content': '']" @click="transletTop(), selectedContent = 'tags'" >
+                <img class="tag-icon" :src="require('/src/assets/ics/tag.png')">
+                Tags</button> 
 
 			</div>
 
@@ -108,10 +116,8 @@ export default {
 	},
     methods: {
         openSearchModule: function($event){
+            console.log('open')
             this.isOpen = !this.isOpen;
-        },
-		        openSearchModule: function(){
-            this.$emit('openSearchModule', this.isOpen);
         },
         showLocationContainer: function(){
             this.isHiddenLocationContainer = !this.isHiddenLocationContainer;
@@ -299,7 +305,7 @@ export default {
                 margin: 0;
                 }
             }    
-            &.router-link-active{
+            &.selected-content{
               color: $hover-color;
             }
         }     
@@ -355,7 +361,10 @@ export default {
         transform: translateX(30vw);
     }
     .move-down{
-        transform: translateY(-20vh);
+        transform: translateY(-21vh);
+    }
+    .move-down-tags{
+        transform: translateY(-13vh);
     }
     
     @keyframes hide-r {

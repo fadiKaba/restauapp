@@ -16,8 +16,6 @@
            <swiper
             :slides-per-view="6"
             :space-between="10"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
             >   
                 <swiper-slide>
                     <a href="#">
@@ -250,7 +248,7 @@ export default {
 .carous{
     z-index: 99;
     position: fixed;
-    bottom: 10%;
+    bottom: 10.5%;
     color: #fff;
     width: 100%;
     background-color: lighten($trans-black, 20);
